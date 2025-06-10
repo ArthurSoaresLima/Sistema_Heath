@@ -1,20 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from 'react';
+import {useState} from 'react'
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Ola</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+
+import LoginScreen from './src/screens/LoginScreen';
+import DesktopScreen from './src/screens/DesktopScreen';
+import CalculoIMCScreen from './src/screens/CalculoIMCScreen';
+import GastoCaloricoScreen from './src/screens/GastoCaloricoScreen';
+
+const Stack = createNativeStackNavigator();
+
+export default function App(){
+  return(
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='LoginScreen'>
+        <Stack.Screen name='LoginScreen' component={LoginScreen} />
+        <Stack.Screen name='DesktopScreen' component={DesktopScreen} />
+        <Stack.Screen name='CalculoIMCScreen' component={CalculoIMCScreen} />
+        <Stack.Screen name='GastoCaloricoScreen' component={GastoCaloricoScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
