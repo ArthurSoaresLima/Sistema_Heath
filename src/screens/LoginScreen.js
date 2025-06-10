@@ -1,5 +1,5 @@
 import React from "react";
-import { View,Text, Button, TextInput, StyleSheet, TouchableOpacity } from "react-native";
+import { View,Text, TextInput, StyleSheet, TouchableOpacity } from "react-native";
 
 import { useState } from "react";
 
@@ -22,7 +22,7 @@ export default function LoginScreen({navigation}){
         <View style={styles.areaTotal}>
             <View style={styles.areaTI}>
             <Text style={styles.titulo}>Sistema Health</Text>
-            <Text style={styles}>{Aviso}</Text>
+            <Text style={styles.aviso}>{Aviso}</Text>
             </View>
 
             <View style={styles.item2}>
@@ -83,5 +83,8 @@ const styles = StyleSheet.create({
         gap: 4,
         padding: 14,
     },
+    aviso:{
+        color: 'red',
+    }
 
 })
