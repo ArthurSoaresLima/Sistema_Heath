@@ -16,7 +16,7 @@ export default function App(){
   return(
     <NavigationContainer>
       <Stack.Navigator initialRouteName='LoginScreen'>
-        <Stack.Screen name='LoginScreen' component={LoginScreen} />
+        <Stack.Screen name='LoginScreen' component={LoginScreen} options={{ headerShown: false }} />
         <Stack.Screen name='DesktopScreen' component={DesktopScreen} />
         <Stack.Screen name='CalculoIMCScreen' component={CalculoIMCScreen} />
         <Stack.Screen name='GastoCaloricoScreen' component={GastoCaloricoScreen} />
