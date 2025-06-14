@@ -56,7 +56,7 @@ export default function CalculoIMCScreen({ navigation }) {
   return (
     <View style={styles.screen}>
       <View style={styles.container}>
-        <Text style={styles.usuario}>Usuário: Admin</Text>
+        <Text style={styles.usuario}>Usuário: Adminn</Text>
 
         <Text style={styles.label}>Peso:</Text>
         <TextInput

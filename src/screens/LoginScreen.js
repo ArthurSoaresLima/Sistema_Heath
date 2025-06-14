@@ -1,19 +1,22 @@
 import React from "react";
 import { View,Text, TextInput, StyleSheet, TouchableOpacity } from "react-native";
 
-import { useState } from "react";
-
-
+import { useState, useContext } from "react";//ADICIONADO POR DAMARIS
+import { UserContext } from '../context/UserContext';//ADICIONADO POR DAMARIS
 
 
 export default function LoginScreen({navigation}){
     const [Login, setLogin] = useState()
     const [Senha, setSenha] = useState()
     const [Aviso, setAviso] = useState()
+    const { setUsername } = useContext(UserContext); // ADICIONADO POR DAMARIS
+
 
     const entrada = () => {
         if(Login == "admin" && Senha == "123456"){
-            navigation.navigate ("DesktopScreen");
+            setUsername(Login); //ADICIONADO POR DAMARIS
+            navigation.navigate("DesktopScreen"); // ADICIONADO POR DAMARIS
+
         }else{
             setAviso("Login ou senha inválidos!!")
         }
@@ -42,7 +45,7 @@ export default function LoginScreen({navigation}){
 
 const styles = StyleSheet.create({
     areaTotal: {
-        alignItems: 'center',     // centraliza horizontalmente
+        alignItems: 'center',     
         backgroundColor: '#f2f2f2',
         
         marginLeft: 'auto',
