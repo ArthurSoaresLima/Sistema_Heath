@@ -6,8 +6,8 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 
 export default function GastoCaloricoScreen() {
     const  {username} = useContext(UserContext)
-    const [idade, setIdade] = useState()
-    const [peso, setPeso] = useState()
+    const [idade, setIdade] = useState("")
+    const [peso, setPeso] = useState("")
     const [basal, setBasal] = useState(0)
     const [gasto, setGasto] = useState(0)
     const [aviso, setAviso] = useState("")
@@ -58,29 +58,34 @@ export default function GastoCaloricoScreen() {
 
     const Calcular = () => {
 
-        if (peso == "" || idade == ""){
-            setPeso(0)
-            setIdade(0)    
-        }
+        
 
         let novoBasal = 0;
-        let novoBasal2 = 0;
+       
         if (selecionado == "Feminino" ){
-            if (peso >= 0 && idade >= 0){
-                if (idade >= 0 && idade <= 3) {
-                    novoBasal = (peso * 58.317) - 31.1;
-                } else if (idade > 3 && idade <= 10) {
-                    novoBasal = (peso * 20.315) + 485.9;
-                } else if (idade > 10 && idade <= 18) {
-                    novoBasal = (peso * 13.384) + 692.6;
-                } else if (idade > 18 && idade <= 30) {
-                    novoBasal = (peso * 14.818) + 486.6;
-                } else if (idade > 30 && idade <= 60) {
-                    novoBasal = (peso * 8.126) + 845.6;
-                } else if (idade > 60) {
-                    novoBasal = (peso * 9.082) + 658.5;
+            if (peso >= "0" && idade >= "0"){
+                if (gasto <= "0" || basal <= "0"){
+                    setAviso("Não avacalhe o sistema");
+                }else{
+                
+                    if (idade >= "1" && idade <= "3") {
+                        novoBasal = (peso * 58.317) - 31.1;
+                    } else if (idade > "3" && idade <= "10") {
+                        novoBasal = (peso * 20.315) + 485.9;
+                    } else if (idade > "10" && idade <= "18") {
+                        novoBasal = (peso * 13.384) + 692.6;
+                    } else if (idade > "18" && idade <= "30") {
+                        novoBasal = (peso * 14.818) + 486.6;
+                    } else if (idade > "30" && idade <= "60") {
+                        novoBasal = (peso * 8.126) + 845.6;
+                    } else if (idade > "60") {
+                        novoBasal = (peso * 9.082) + 658.5;
+                    }
+                    setAviso("");
                 }
-                setAviso("");
+                
+                
+                
                 
                 
 
@@ -89,21 +94,26 @@ export default function GastoCaloricoScreen() {
             }
 
         } else if (selecionado == "Masculino") {
-            if (peso >= 0 && idade >= 0){
-                if (idade >= 0 && idade <= 3) {
-                    novoBasal = (peso * 59.512) - 30.4;
-                } else if (idade > 3 && idade <= 10) {
-                    novoBasal = (peso * 22.706) + 504.3;
-                } else if (idade > 10 && idade <= 18) {
-                    novoBasal = (peso * 17.686) + 658.2;
-                } else if (idade > 18 && idade <= 30) {
-                    novoBasal = (peso * 15.057) + 692.2;
-                } else if (idade > 30 && idade <= 60) {
-                    novoBasal = (peso * 11.472) + 873.1;
-                } else if (idade > 60) {
-                    novoBasal = (peso * 11.711) + 587.7;
+            if (peso >= "0" && idade >= "0"){
+                if (gasto <= "0" || basal <= "0"){
+                    setAviso("Não avacalhe o sistema");
+                }else{
+                    if (idade >= "0" && idade <= "3") {
+                        novoBasal = (peso * 59.512) - 30.4;
+                    } else if (idade > "3" && idade <= "10") {
+                        novoBasal = (peso * 22.706) + 504.3;
+                    } else if (idade > "10" && idade <= "18") {
+                        novoBasal = (peso * 17.686) + 658.2;
+                    } else if (idade > "18" && idade <= "30") {
+                        novoBasal = (peso * 15.057) + 692.2;
+                    } else if (idade > "30" && idade <= "60") {
+                        novoBasal = (peso * 11.472) + 873.1;
+                    } else if (idade > "60") {
+                        novoBasal = (peso * 11.711) + 587.7;
+                    }
+                    setAviso("");
                 }
-                setAviso("");
+                
             }else{
                 setAviso("Preencha todas as informações corretamente.");
             }
@@ -149,6 +159,9 @@ export default function GastoCaloricoScreen() {
             else if (exercicioFisica === '14 horas') fator2 = (840 / 7) * 6;
 
             setGasto(gastoBase + fator2);
+
+
+  
         } else {
             let fator3 = 0;
 
@@ -168,17 +181,12 @@ export default function GastoCaloricoScreen() {
             else if (exercicioFisica === '14 horas') fator3 = (840 / 7) * 6;
 
             setGasto(novoBasal + fator3);
+
+            
         }
         
         
     }   
-    
-
-
-    
-    
-   
-
 
     return (
         <View style={styles.areaTotal}>
