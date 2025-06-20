@@ -63,61 +63,47 @@ export default function GastoCaloricoScreen() {
         let novoBasal = 0;
        
         if (selecionado == "Feminino" ){
-            if (peso >= "0" && idade >= "0"){
-                if (gasto <= "0" || basal <= "0"){
-                    setAviso("Não avacalhe o sistema");
-                }else{
-                
-                    if (idade >= "1" && idade <= "3") {
-                        novoBasal = (peso * 58.317) - 31.1;
-                    } else if (idade > "3" && idade <= "10") {
-                        novoBasal = (peso * 20.315) + 485.9;
-                    } else if (idade > "10" && idade <= "18") {
-                        novoBasal = (peso * 13.384) + 692.6;
-                    } else if (idade > "18" && idade <= "30") {
-                        novoBasal = (peso * 14.818) + 486.6;
-                    } else if (idade > "30" && idade <= "60") {
-                        novoBasal = (peso * 8.126) + 845.6;
-                    } else if (idade > "60") {
-                        novoBasal = (peso * 9.082) + 658.5;
-                    }
-                    setAviso("");
+            if (peso > "0" && idade > "0"){
+                if (idade >= "1" && idade <= "3") {
+                    novoBasal = (peso * 58.317) - 31.1;
+                } else if (idade > "3" && idade <= "10") {
+                    novoBasal = (peso * 20.315) + 485.9;
+                } else if (idade > "10" && idade <= "18") {
+                    novoBasal = (peso * 13.384) + 692.6;
+                } else if (idade > "18" && idade <= "30") {
+                    novoBasal = (peso * 14.818) + 486.6;
+                } else if (idade > "30" && idade <= "60") {
+                    novoBasal = (peso * 8.126) + 845.6;
+                } else if (idade > "60") {
+                    novoBasal = (peso * 9.082) + 658.5;
                 }
-                
-                
-                
-                
-                
-
+                setAviso("");
             }else{
                 setAviso("Preencha todas as informações corretamente.");
             }
 
         } else if (selecionado == "Masculino") {
-            if (peso >= "0" && idade >= "0"){
-                if (gasto <= "0" || basal <= "0"){
-                    setAviso("Não avacalhe o sistema");
-                }else{
-                    if (idade >= "0" && idade <= "3") {
-                        novoBasal = (peso * 59.512) - 30.4;
-                    } else if (idade > "3" && idade <= "10") {
-                        novoBasal = (peso * 22.706) + 504.3;
-                    } else if (idade > "10" && idade <= "18") {
-                        novoBasal = (peso * 17.686) + 658.2;
-                    } else if (idade > "18" && idade <= "30") {
-                        novoBasal = (peso * 15.057) + 692.2;
-                    } else if (idade > "30" && idade <= "60") {
-                        novoBasal = (peso * 11.472) + 873.1;
-                    } else if (idade > "60") {
-                        novoBasal = (peso * 11.711) + 587.7;
-                    }
-                    setAviso("");
+            if (peso > "0" && idade > "0"){
+                if (idade >= "0" && idade <= "3") {
+                    novoBasal = (peso * 59.512) - 30.4;
+                } else if (idade > "3" && idade <= "10") {
+                    novoBasal = (peso * 22.706) + 504.3;
+                } else if (idade > "10" && idade <= "18") {
+                    novoBasal = (peso * 17.686) + 658.2;
+                } else if (idade > "18" && idade <= "30") {
+                    novoBasal = (peso * 15.057) + 692.2;
+                } else if (idade > "30" && idade <= "60") {
+                    novoBasal = (peso * 11.472) + 873.1;
+                } else if (idade > "60") {
+                    novoBasal = (peso * 11.711) + 587.7;
                 }
-                
+                setAviso(""); 
             }else{
                 setAviso("Preencha todas as informações corretamente.");
             }
-        }else if (peso >= 0 || idade >= 0){
+
+
+        }else if (peso > 0 || idade > 0){
             setAviso("Coloque um Genero");
         }
 
