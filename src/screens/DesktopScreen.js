@@ -1,11 +1,10 @@
 
 import React, { useContext } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 import { UserContext } from '../context/UserContext'; 
 
-export default function DesktopScreen() {
-  const navigation = useNavigation(); 
+export default function DesktopScreen({navigation}) {
+  
   const { username } = useContext(UserContext); 
 
   return (
